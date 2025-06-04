@@ -3,8 +3,8 @@ export default function Content() {
     <div className="Mcon">
       
       <div className="Content">
-        <Post />
-        <Post />
+        <Post name="first title" content="first content"/>
+        <Post name="second title" content="second content"/>
         <Post />
         <Post />
         <Post />
@@ -13,34 +13,41 @@ export default function Content() {
     </div>
   );
 }
-function Post() {
+function Post({name="name not found" , content="there is no content"}) {
   return (
     <div className="Post">
-      <h2>this is the post title</h2>
+      <h2>{name}</h2>
       <hr />
-      <p>this is the post body</p>
+      <p>{content}</p>
     </div>
   );
 }
 function Buttons() {
   return (
     <div className="Buttons">
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
-      <Btn />
+      <Btn name="sport">
+        <div>
+          <img style={{width:"50%"}}src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="sport icon" />
+        </div>
+      </Btn>
+      <Btn name="games">
+        <div>
+          <img style={{width:"50%"}}src="https" alt="games icon" />
+        </div>
+      </Btn>
+      <Btn name="films">
+        <div>
+          <img style={{width:"50%"}}src="" alt="film icon" />
+        </div>
+      </Btn>
+
     </div>
   );
 }
-function Btn() {
-  return <button className="Btn">tag button</button>;
+function Btn({name ="name not found", children}) {
+  return <button className="Btn" style={{width:"fit-content",height:"fit-content",maxWidth:"100px",maxHeight:"100px"}}>
+    {name}
+    <br/>
+    {children}
+  </button>;
 }
